@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  php:
+    build: 
+      dockerfile: Dockerfile.php7.4
+    container_name: php
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes: 
+      - ./www:/var/www
+    links:
+      - db
+    networks:
+      - netjota
+
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=siee
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - netjota
+    
+networks:
+  netjota:
+    driver: bridge
