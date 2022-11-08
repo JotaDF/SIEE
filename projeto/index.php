@@ -1,3 +1,6 @@
+<?php 
+include_once "verifica_login.php"
+?>
 <!DOCTYPE html>
 <html>
     <head>

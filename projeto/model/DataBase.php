@@ -15,8 +15,8 @@ class DataBase {
     //put your code here
     var $host = "localhost";
     var $user = "root";
-    var $password = "";
-    var $database = "projeto2";
+    var $password = "root";
+    var $database = "siee";
     var $conn;
 
     public function conectar() {

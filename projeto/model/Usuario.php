@@ -1,7 +1,5 @@
 <?php
 
-include_once "Perfil.php";
-
 /**
  * Description of Usuario
  *
