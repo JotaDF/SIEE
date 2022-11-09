@@ -1,6 +1,6 @@
 <?php
 
-class Perfil {
+class Curso {
     
     var $id;
     var $nome;
