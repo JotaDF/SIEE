@@ -6,7 +6,8 @@
      <pre>comando: git clone https://github.com/JotaDF/SIEE.git</pre>
  
  - Instale o docker: https://docs.docker.com/get-docker/
-     - Abra o terminal/PowerShell e acesso a pasta "docker" do projeto e execute o docker-compose;
+     - copie a pasta "docker" do projeto para seu diretorio workspace(exemplo: "Documents");
+     - Abra o terminal/PowerShell e acesso a pasta "docker" do seu workspace e execute o docker-compose;
      <pre>comando: docker-compose up -d --build</pre>
      
  - Instale o VSCode: https://code.visualstudio.com/download
