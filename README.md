@@ -7,7 +7,7 @@
  
  - Instale o docker: https://docs.docker.com/get-docker/
      - Abra o terminal/PowerShell e acesso a pasta "docker" do projeto e execute o docker-compose;
-     <pre>comando: docker-compose up -d</pre>
+     <pre>comando: docker-compose up -d --build</pre>
      
  - Instale o VSCode: https://code.visualstudio.com/download
      - Copie a pasta "projeto" para a pasta "www/html" criada dentro da pasta "docker"
