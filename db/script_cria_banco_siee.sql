@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `estagiario` (
   `data_inicio` BIGINT NULL,
   `data_termino` BIGINT NULL,
   `data_inicio_aditivo` BIGINT NULL,
-  `data_termino_aditijo` BIGINT NULL,
+  `data_termino_aditivo` BIGINT NULL,
   `data_recisao` BIGINT NULL,
   `apolice` VARCHAR(255) BINARY NULL,
   `seguradora` VARCHAR(255) NULL,
