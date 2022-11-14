@@ -1,6 +1,6 @@
 <?php
-
-class Coordenador
+//include_once "Curso.php";
+class Coordenador 
 {
 
     var $id;
@@ -12,8 +12,8 @@ class Coordenador
     var $email;
     var $nucleo;
     var $turno;
-    var $id_curso;
     var $senha;
+    var $id_curso;
 
     public function __construct(){
 
@@ -26,7 +26,6 @@ class Coordenador
     public function getCpf(){
         return $this->cpf;
     }
-
 
     public function getNome(){
         return $this->nome;
@@ -56,13 +55,14 @@ class Coordenador
         return $this->turno;
     }
 
+    public function getSenha(){
+        return $this->senha;
+    }
+
     public function getId_curso(){
         return $this->id_curso;
     }
 
-    public function getSenha(){
-        return $this->senha;
-    }
 
     public function setId($id){
         $this->id = $id;
@@ -100,11 +100,11 @@ class Coordenador
         $this->turno = $turno;
     }
 
-    public function setId_curso($id_curso){
-        $this->id_curso = $id_curso;
-    }
-
     public function setSenha($senha){
         $this->senha = $senha;
+    }
+
+    public function setId_curso(Curso $id_curso){
+        $this->id_curso = $id_curso;
     }
 }

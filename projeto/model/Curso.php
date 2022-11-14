@@ -8,6 +8,7 @@ class Curso {
     public function __construct() {
         
     }
+    
     public function getId() {
         return $this->id;
     }
