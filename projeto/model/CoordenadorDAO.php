@@ -1,6 +1,5 @@
 <?php
 
-include_once "CursoDAO.php";
 include_once "Coordenador.php";
 include_once "DataBase.php";
 
@@ -13,13 +12,14 @@ include_once "DataBase.php";
 class CoordenadorDAO extends DataBase {
 
     public function inserir(Coordenador $coordenador) {
-        $sql = "INSERT INTO  (cpf, nome, graduacao, pos_graduacao, telefone, email, nucleo, turno, id_curso, senha)"
+        $sql = "INSERT INTO coordenador (cpf, nome, graduacao, pos_graduacao, telefone, email, nucleo, turno, id_curso, senha)"
                 . " VALUES('" . $coordenador->cpf . "','" . $coordenador->nome . "','" . $coordenador->graduacao . "','" . $coordenador->pos_graduacao . "','" . $coordenador->email . "','" . $coordenador->nucleo . "','" . $coordenador->turno. "','" . $coordenador->nucleo . "','" . $coordenador->id_curso . "',MD5('" . $coordenador->senha . "'))";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
 
+    /*
     public function listar() {
         $sql = "SELECT * FROM coordenador ";
         $this->conectar();
@@ -106,5 +106,7 @@ class CoordenadorDAO extends DataBase {
         $this->desconectar();
         return $u;
     }
+
+    */
 
 }
