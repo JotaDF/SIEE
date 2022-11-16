@@ -6,6 +6,7 @@
  */
 include_once "../model/CoordenadorDAO.php";
 include_once "../model/Coordenador.php";
+include_once "../model/Curso.php";
 // put your code here
 
 
@@ -25,16 +26,16 @@ $id_curso =  $_REQUEST["id_curso"];
 $coordenador = new Coordenador();
 $coordenador->setCpf($cpf);
 $coordenador->setNome($nome);
-$coordenador->setGraduacao($cpf);
-$coordenador->setPos_graduacao($nome);
-$coordenador->setTelefone($cpf);
-$coordenador->setEmail($nome);
-$coordenador->setNucleo($cpf);
-$coordenador->setTurno($nome);
-$coordenador->setSenha($cpf);
-$coordenador->setId_curso($id_curso);
-
-
+$coordenador->setGraduacao($graduacao);
+$coordenador->setPos_graduacao($pos_graduacao);
+$coordenador->setTelefone($telefone);
+$coordenador->setEmail($email);
+$coordenador->setNucleo($nucleo);
+$coordenador->setTurno($turno);
+$coordenador->setSenha($senha);
+$c = new Curso();
+$c->setId($id_curso);
+$coordenador->setId_curso($c);
 
 $mDAO = new CoordenadorDAO();
 $mDAO->inserir($coordenador);

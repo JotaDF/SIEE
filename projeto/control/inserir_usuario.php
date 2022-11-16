@@ -20,7 +20,7 @@ $p = new Perfil();
 $p->setId($id_perfil);
 $usuario->setPerfil($p);
 
-$pDAO = new UsuarioDAO();
+//$pDAO = new UsuarioDAO();
 $pDAO->inserir($usuario);
 
 header("Location: ../listar_usuario.php");
