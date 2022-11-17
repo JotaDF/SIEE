@@ -11,7 +11,7 @@
         <?php
         include_once './banner.php';
         ?>
-        <h4>Novo Menu</h4>
+        <h4>Cadastro de Coordenador</h4>
         <form method="post" action="control/inserir_coordenador.php">
             CPF:<input type="text" name="cpf" size="11" required /><br/>
             Nome:<input type="text" name="nome" size="60" required /><br/>

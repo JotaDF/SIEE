@@ -12,8 +12,7 @@ include_once "DataBase.php";
 class CoordenadorDAO extends DataBase {
 
     public function inserir(Coordenador $coordenador) {
-        $sql = "INSERT INTO coordenador (cpf, nome, graduacao, pos_graduacao, telefone, email, nucleo, turno, id_curso, senha)"
-                . " VALUES('" . $coordenador->cpf . "','" . $coordenador->nome . "','" . $coordenador->graduacao . "','" . $coordenador->pos_graduacao . "','" . $coordenador->email . "','" . $coordenador->nucleo . "','" . $coordenador->turno. "','" . $coordenador->nucleo . "','" . $coordenador->id_curso . "',MD5('" . $coordenador->senha . "'))";
+        $sql = "INSERT INTO coordenador (cpf, nome, graduacao, pos_graduacao, telefone, email, nucleo, turno, id_curso, senha) VALUES ('" . $coordenador->cpf . "','" . $coordenador->nome . "','" . $coordenador->graduacao . "','" . $coordenador->pos_graduacao . "','" . $coordenador->telefone . "','" . $coordenador->email . "','" . $coordenador->nucleo . "','" . $coordenador->turno. "','" . $coordenador->id_curso->id . "',MD5('" . $coordenador->senha . "'))";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

@@ -1,5 +1,5 @@
 <?php
-//include_once "Curso.php";
+include_once "Curso.php";
 class Coordenador 
 {
 

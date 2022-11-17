@@ -9,19 +9,16 @@ include_once "../model/Coordenador.php";
 include_once "../model/Curso.php";
 // put your code here
 
-
-
 $cpf = $_REQUEST["cpf"];
 $nome = $_REQUEST["nome"];
 $graduacao =  $_REQUEST["graduacao"];
 $pos_graduacao =  $_REQUEST["pos_graduacao"];
 $telefone =  $_REQUEST["telefone"];
-$email =  $_REQUEST["email "];
-$nucleo =  $_REQUEST["nucleo "];
+$email =  $_REQUEST["email"];
+$nucleo =  $_REQUEST["nucleo"];
 $turno =  $_REQUEST["turno"];
-$senha =  $_REQUEST["senha"];
 $id_curso =  $_REQUEST["id_curso"];
-
+$senha =  $_REQUEST["senha"];
 
 $coordenador = new Coordenador();
 $coordenador->setCpf($cpf);
@@ -32,12 +29,12 @@ $coordenador->setTelefone($telefone);
 $coordenador->setEmail($email);
 $coordenador->setNucleo($nucleo);
 $coordenador->setTurno($turno);
-$coordenador->setSenha($senha);
 $c = new Curso();
 $c->setId($id_curso);
 $coordenador->setId_curso($c);
+$coordenador->setSenha($senha);
 
-$mDAO = new CoordenadorDAO();
-$mDAO->inserir($coordenador);
+$coordDAO = new CoordenadorDAO();
+$coordDAO->inserir($coordenador);
 
 header("Location: ../listar_coordenador.php");
