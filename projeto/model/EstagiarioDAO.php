@@ -1,7 +1,6 @@
 <?php
 
-include_once "CoordenadorDAO.php";
-include_once "Coordenador.php";
+include_once "Estagiario.php";
 include_once "CursoDAO.php";
 include_once "Curso.php";
 include_once "DataBase.php";
@@ -15,10 +14,7 @@ include_once "DataBase.php";
 class EstagiarioDAO extends DataBase {
 
     public function inserir(Estagiario $estagiario) {
-        $sql = "INSERT INTO estagiario (id, matricula, senha, nome, endereco, telefone, celular, email, periodo, turma, turno, composicao_carga_horaria, carga_horaria, data_inicio, data_termino, data_inicio_aditivo, data_termino_aditivo, data_recisao, apolice, seguradora, id_curso) 
-        VALUES ('" . $estagiario->id . "','" . $estagiario->matricula . "',MD5('" . $estagiario->senha . "')','" . $estagiario->nome . "','" . $estagiario->endereco . "','" . $estagiario->telefone . "','" . $estagiario->celular . "','" . $estagiario->email . "','" . $estagiario->periodo. "
-        ','" . $estagiario->turma. "','" . $estagiario->turno. "','" . $estagiario->composicao_carga_horaria . "','" . $estagiario->carga_horaria . "','" . $estagiario->data_inicio . "','" . $estagiario->data_termino . "','" . $estagiario->data_inicio_aditivo. "','" . $estagiario->data_termino_aditivo. "
-        ','" . $estagiario->data_recisao. "','" . $estagiario->apolice . "','" . $estagiario->seguradora . "','" . $estagiario->id_curso->id . "))";
+        $sql = "";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
@@ -101,10 +97,10 @@ class EstagiarioDAO extends DataBase {
 
     /*
     public function carregarPorId($id) {
-        $sql = "SELECT * FROM coordenador WHERE id=" . $id;
+        $sql = "SELECT * FROM estagiario WHERE id=" . $id;
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $estagiario = new Coordenador();
+        $estagiario = new Estagiario();
         while ($row = $rs->fetch_assoc()) {
             $estagiario->setId($row["id"]);
             $estagiario->setCpf($row["cpf"]);

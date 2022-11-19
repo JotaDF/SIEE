@@ -15,10 +15,10 @@
         <form method="post" action="control/inserir_estagiario.php">
             Matricula:<input type="text" name="matricula" size="20" required /><br/>
             Senha:<input type="password" name="senha" size="60" required /><br/>
-            Nome:<input type="text" name="nome size="60" required /><br/>
+            Nome:<input type="text" name="nome" size="60" required /><br/>
             Endereço:<input type="text" name="endereco" size="60" required /><br/>
             Telefone:<input type="tel" name="telefone" size="10" required /><br/>
-            Celular:<input type="tel" name="telefone" size="15" required /><br/>
+            Celular:<input type="tel" name="celular" size="15" required /><br/>
             E-mail:<input type="email" name="email" size="60" required /><br/>
             Periodo:<input type="text" name="periodo" size="60" required /><br/>
             Turma:<input type="text" name="turma" size="60" required /><br/>
