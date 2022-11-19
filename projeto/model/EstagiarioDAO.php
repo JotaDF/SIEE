@@ -1,5 +1,5 @@
 <?php
-
+include_once "EstagiarioDAO.php";
 include_once "Estagiario.php";
 include_once "CursoDAO.php";
 include_once "Curso.php";
@@ -8,7 +8,7 @@ include_once "DataBase.php";
 class EstagiarioDAO extends DataBase {
 
     public function inserir(Estagiario $estagiario) {
-        $sql = "INSERT INTO estagiario (matricula, nome, endereco, telefone, celular, email, periodo, turma, turno, composicao_carga_horaria, carga_horaria, data_inicio, data_termino, data_inicio_aditivo, data_termino_aditivo, data_recisao, apolice, seguradora, id_curso, senha) VALUES ('" . $estagiario->matricula . "','" . $estagiario->nome . "','" . $estagiario->endereco . "','" . $estagiario->telefone . "','" . $estagiario->celular . "','" . $estagiario->email . "','" . $estagiario->periodo . "','" . $estagiario->turma . "','" . $estagiario->turno . "','" . $estagiario->composicao_carga_horaria . "','" . $estagiario->carga_horaria . "','" . $estagiario->data_inicio . "','" . $estagiario->data_termino . "','" . $estagiario->data_inicio_aditivo . "','" . $estagiario->data_termino_aditivo . "','" . $estagiario->data_recisao. "','" . $estagiario->apolice. "','" . $estagiario->seguradora. "','" . $estagiario->id_curso->id . "',MD5('" . $estagiario->senha . "'))";
+        $sql = "INSERT INTO estagiario (matricula, nome, endereco, telefone, celular, email, periodo, turma, turno, composicao_carga_horaria, carga_horaria, data_inicio, data_termino, data_inicio_aditivo, data_termino_aditivo, data_recisao, apolice, seguradora, id_curso, senha) VALUES (". $estagiario->matricula .",'". $estagiario->nome ."','". $estagiario->endereco ."','". $estagiario->telefone ."','". $estagiario->celular ."','". $estagiario->email ."','". $estagiario->periodo ."','". $estagiario->turma ."','". $estagiario->turno ."','". $estagiario->composicao_carga_horaria ."','". $estagiario->carga_horaria ."','". $estagiario->data_inicio ."','". $estagiario->data_termino ."','". $estagiario->data_inicio_aditivo ."','". $estagiario->data_termino_aditivo ."','". $estagiario->data_recisao ."','". $estagiario->apolice ."','" . $estagiario->seguradora. "',". $estagiario->id_curso->id .",MD5('". $estagiario->senha ."'))";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
