@@ -5,16 +5,10 @@ include_once "CursoDAO.php";
 include_once "Curso.php";
 include_once "DataBase.php";
 
-/**
- * Description of coordenadorDAO
- *
- * @author JWilson
- */
-
 class EstagiarioDAO extends DataBase {
 
     public function inserir(Estagiario $estagiario) {
-        $sql = "";
+        $sql = "INSERT INTO estagiario (matricula, nome, endereco, telefone, celular, email, periodo, turma, turno, composicao_carga_horaria, carga_horaria, data_inicio, data_termino, data_inicio_aditivo, data_termino_aditivo, data_recisao, apolice, seguradora, id_curso, senha) VALUES ('" . $estagiario->matricula . "','" . $estagiario->nome . "','" . $estagiario->endereco . "','" . $estagiario->telefone . "','" . $estagiario->celular . "','" . $estagiario->email . "','" . $estagiario->periodo . "','" . $estagiario->turma . "','" . $estagiario->turno . "','" . $estagiario->composicao_carga_horaria . "','" . $estagiario->carga_horaria . "','" . $estagiario->data_inicio . "','" . $estagiario->data_termino . "','" . $estagiario->data_inicio_aditivo . "','" . $estagiario->data_termino_aditivo . "','" . $estagiario->data_recisao. "','" . $estagiario->apolice. "','" . $estagiario->seguradora. "','" . $estagiario->id_curso->id . "',MD5('" . $estagiario->senha . "'))";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
@@ -39,7 +33,7 @@ class EstagiarioDAO extends DataBase {
             $estagiario->setPeriodo($row["periodo"]);
             $estagiario->setTurma($row["turma"]);
             $estagiario->setTurno($row["turno"]);
-            $estagiario->setComposicao__carga_horaria($row["compasicao_carga_horaria"]);
+            $estagiario->setComposicao_carga_horaria($row["composicao_carga_horaria"]);
             $estagiario->setCarga_horaria($row["carga_horaria"]);
             $estagiario->setData_inicio($row["data_inicio"]);
             $estagiario->setData_termino($row["data_termino"]);
@@ -95,7 +89,7 @@ class EstagiarioDAO extends DataBase {
     }
     */
 
-    /*
+    
     public function carregarPorId($id) {
         $sql = "SELECT * FROM estagiario WHERE id=" . $id;
         $this->conectar();
@@ -103,22 +97,32 @@ class EstagiarioDAO extends DataBase {
         $estagiario = new Estagiario();
         while ($row = $rs->fetch_assoc()) {
             $estagiario->setId($row["id"]);
-            $estagiario->setCpf($row["cpf"]);
-            $estagiario->setNome($row["nome"]);
-            $estagiario->setGraduacao($row["graduacao"]);
-            $estagiario->setPos_graduacao($row["pos_graduacao"]);
-            $estagiario->setTelefone($row["telefone"]);
-            $estagiario->setEmail($row["email"]);
-            $estagiario->setNucleo($row["nucleo"]);
-            $estagiario->setTurno($row["turno"]);
+            $estagiario->setMatricula($row["matricula"]);
             $estagiario->setSenha($row["senha"]);
+            $estagiario->setNome($row["nome"]);
+            $estagiario->setEndereco($row["endereco"]);
+            $estagiario->setTelefone($row["telefone"]);
+            $estagiario->setCelular($row["celular"]);
+            $estagiario->setEmail($row["email"]);
+            $estagiario->setPeriodo($row["periodo"]);
+            $estagiario->setTurma($row["turma"]);
+            $estagiario->setTurno($row["turno"]);
+            $estagiario->setComposicao_carga_horaria($row["composicao_carga_horaria"]);
+            $estagiario->setCarga_horaria($row["carga_horaria"]);
+            $estagiario->setData_inicio($row["data_inicio"]);
+            $estagiario->setData_termino($row["data_termino"]);
+            $estagiario->setData_inicio_aditivo($row["data_inicio_aditivo"]);
+            $estagiario->setData_termino_aditivo($row["data_termino_aditivo"]);
+            $estagiario->setData_recisao($row["data_recisao"]);
+            $estagiario->setApolice($row["apolice"]);
+            $estagiario->setSeguradora($row["seguradora"]);
             $estagiarioDAO = new CursoDAO();
             $estagiario->setId_curso($estagiarioDAO->carregarPorId($row["id_curso"]));
         }
         $this->desconectar();
         return $estagiario;
     }
-    */
+    
 
     /*
     public function validaLogin($estagiariopf, $senha) {

@@ -71,7 +71,7 @@ class Estagiario {
         return $this->turno;
     }
 
-    public function getComposicao__carga_horaria(){
+    public function getComposicao_carga_horaria(){
         return $this->composicao_carga_horaria;
     }
 
@@ -157,7 +157,7 @@ class Estagiario {
         $this->turno = $turno;
     }
 
-    public function setComposicao__carga_horaria($composicao_carga_horaria){
+    public function setComposicao_carga_horaria($composicao_carga_horaria){
         $this->composicao_carga_horaria = $composicao_carga_horaria;
     }
 
