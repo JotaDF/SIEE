@@ -1,13 +1,8 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 include_once "../model/EstagiarioDAO.php";
 include_once "../model/Estagiario.php";
 include_once "../model/Curso.php";
-
 
 $matricula = $_REQUEST["matricula"];
 $senha = $_REQUEST["senha"];
@@ -28,7 +23,7 @@ $data_termino_aditivo = $_REQUEST["data_termino_aditivo"];
 $data_recisao = $_REQUEST["data_recisao"];
 $apolice = $_REQUEST["apolice"];
 $seguradora = $_REQUEST["seguradora"];
-$id_curso =  $_REQUEST["id_curso"];
+$id_curso = $_REQUEST["id_curso"];
 
 $estagiario = new Estagiario();
 $estagiario->setMatricula($matricula);
@@ -49,9 +44,9 @@ $estagiario->setData_termino_aditivo($data_termino_aditivo);
 $estagiario->setData_recisao($data_recisao);
 $estagiario->setApolice($apolice);
 $estagiario->setSeguradora($seguradora);
-$c = new Curso();
-$c->setId($id_curso);
-$estagiario->setId_curso($c);
+$curso = new Curso();
+$curso->setId($id_curso);
+$estagiario->setId_curso($curso);
 $estagiario->setSenha($senha);
 
 $estagiarioDAO = new EstagiarioDAO();

@@ -1,6 +1,7 @@
 <?php
-
-class Estagiario {
+include_once "Curso.php";
+class Estagiario 
+{
     var $id;
     var $matricula;
     var $senha;
@@ -197,4 +198,3 @@ class Estagiario {
         $this->id_curso = $id_curso;
     }
 }
-?>

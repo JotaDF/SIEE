@@ -33,6 +33,7 @@
                 <th>TURMA</th>
                 <th>TURNO</th>
                 <th>COMPASIÇÃO DA CARGA HORARIA</th>
+                <th>CARGA HORARIA</th>
                 <th>DATA DE INICIO</th>
                 <th>DATA DE TERMINO</th>
                 <th>DATA DE INICIO ADITIVO</th>
@@ -44,7 +45,7 @@
             </tr>
             <?php
             include_once "./model/EstagiarioDAO.php";
-            include_once "./model/EstagiarioDAO.php";
+            include_once "./model/Estagiario.php";
             // put your code here
             $estagiarioDAO = new EstagiarioDAO();
             $lista = array();
@@ -71,7 +72,7 @@
                     <td><?= $estagiario->data_inicio_aditivo ?></td>
                     <td><?= $estagiario->data_termino_aditivo ?></td>
                     <td><?= $estagiario->data_recisao ?></td>
-                    <td><?= $estagiario->apolicE ?></td>
+                    <td><?= $estagiario->apolice ?></td>
                     <td><?= $estagiario->seguradora ?></td>
                     <td><?= $estagiario->id_curso->nome ?></td>
                     <td align="center">

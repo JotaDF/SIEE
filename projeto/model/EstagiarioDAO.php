@@ -1,4 +1,5 @@
 <?php
+
 include_once "EstagiarioDAO.php";
 include_once "Estagiario.php";
 include_once "CursoDAO.php";
@@ -8,7 +9,9 @@ include_once "DataBase.php";
 class EstagiarioDAO extends DataBase {
 
     public function inserir(Estagiario $estagiario) {
-        $sql = "INSERT INTO estagiario (matricula, nome, endereco, telefone, celular, email, periodo, turma, turno, composicao_carga_horaria, carga_horaria, data_inicio, data_termino, data_inicio_aditivo, data_termino_aditivo, data_recisao, apolice, seguradora, id_curso, senha) VALUES (". $estagiario->matricula .",'". $estagiario->nome ."','". $estagiario->endereco ."','". $estagiario->telefone ."','". $estagiario->celular ."','". $estagiario->email ."','". $estagiario->periodo ."','". $estagiario->turma ."','". $estagiario->turno ."','". $estagiario->composicao_carga_horaria ."','". $estagiario->carga_horaria ."','". $estagiario->data_inicio ."','". $estagiario->data_termino ."','". $estagiario->data_inicio_aditivo ."','". $estagiario->data_termino_aditivo ."','". $estagiario->data_recisao ."','". $estagiario->apolice ."','" . $estagiario->seguradora. "',". $estagiario->id_curso->id .",MD5('". $estagiario->senha ."'))";
+        $sql = "INSERT INTO estagiario (matricula, nome, endereco, telefone, celular, email, periodo, turma, turno, composicao_carga_horaria, carga_horaria, data_inicio, data_termino, data_inicio_aditivo, data_termino_aditivo, data_recisao, apolice, seguradora, id_curso, senha) VALUES 
+        ('" . $estagiario->matricula . "','" . $estagiario->nome . "','" . $estagiario->endereco . "','". $estagiario->telefone ."','". $estagiario->celular ."','". $estagiario->email ."','". $estagiario->periodo ."','". $estagiario->turma ."','". $estagiario->turno ."','" . $estagiario->composicao_carga_horaria . "'
+        ,'" . $estagiario->carga_horaria . "'," . $estagiario->data_inicio . "," . $estagiario->data_termino . "," . $estagiario->data_inicio_aditivo . "," . $estagiario->data_termino_aditivo . "," . $estagiario->data_recisao . ",'" . $estagiario->apolice . "','" . $estagiario->seguradora . "'," . $estagiario->id_curso->id . ",MD5('" . $estagiario->senha . "'));";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
@@ -51,33 +54,43 @@ class EstagiarioDAO extends DataBase {
     }
     
 
-    /*
+    
     public function excluir($id) {
-        $sql = "DELETE FROM coordenador WHERE id=" . $id;
+        $sql = "DELETE FROM estagiario WHERE id=" . $id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
-    */
+    
 
-    /*
-    public function alterar(Coordenador $estagiario) {
-        $sql = "UPDATE coordenador SET cpf='" . $estagiario->cpf . "', "
+    // bug
+    public function alterar(Estagiario $estagiario) {
+        $sql = "UPDATE estagiario SET matricula='" . $estagiario->matricula . "', "
                 . " nome='" . $estagiario->nome . "', "
-                . " graduacao='" . $estagiario->graduacao . "', "
-                . " pos_graduacao='" . $estagiario->pos_graduacao . "', "
+                . " endereco='" . $estagiario->endereco . "', "
                 . " telefone='" . $estagiario->telefone . "', "
+                . " celular='" . $estagiario->celular . "', "
                 . " email='" . $estagiario->email . "', "
-                . " nucleo='" . $estagiario->nucleo . "', "
+                . " periodo='" . $estagiario->periodo . "', "
+                . " turma='" . $estagiario->turma . "', "
                 . " turno='" . $estagiario->turno . "', "
+                . " composicao_carga_horaria='" . $estagiario->composicao_carga_horaria . "', "
+                . " carga_horaria='" . $estagiario->carga_horaria . "', "
+                . " data_inicio=" . $estagiario->data_inicio . ", "
+                . " data_termino=" . $estagiario->data_termino . ", "
+                . " data_inicio_aditivo=" . $estagiario->data_inicio_aditivo . ", "
+                . " data_termino_aditivo=" . $estagiario->data_termino_aditivo . ", "
+                . " data_recisao=" . $estagiario->data_recisao . ", "
+                . " apolice='" . $estagiario->apolice . "', "
+                . " seguradora='" . $estagiario->seguradora . "', "
+                . " id_curso=" . $estagiario->id_curso->id . ", "
                 . " senha='" . $estagiario->senha . "', "
-                . " id_curso='" . $estagiario->id_curso->id . "' "
-                . "WHERE id=" . $estagiario->id;
+                . "WHERE id='". $estagiario->id. "";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
-    */
+    
 
     /*
     public function alterarSituacao($id, $situacao) {
