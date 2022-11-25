@@ -1,8 +1,9 @@
 <?php
+include_once "Estagiario.php";
 
 class Ponto {
     var $id;
-    var $data;
+    var $data_atual;
     var $hora_entrada;
     var $hora_saida;
     var $id_estagiario;
@@ -15,8 +16,8 @@ class Ponto {
         return $this->id;
     }
 
-    public function getData(){
-        return $this->data;
+    public function getData_atual(){
+        return $this->data_atual;
     }
 
     public function getHora_entrada(){
@@ -35,8 +36,8 @@ class Ponto {
         $this->id = $id;
     }
 
-    public function setData($data){
-        $this->data = $data;
+    public function setData_atual($data_atual){
+        $this->data_atual = $data_atual;
     }
 
     public function setHora_entrada($hora_entrada){

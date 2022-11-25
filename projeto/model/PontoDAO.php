@@ -8,14 +8,14 @@ include_once "DataBase.php";
 class pontoDAO extends DataBase {
 
     public function inserir(Ponto $ponto) {
-        $sql = "INSERT INTO ponto (data, hora_entrada, hora_saida, id_estagiario) VALUES 
-        (" . $ponto->data . ",'" . $ponto->hora_entrada . "','" . $ponto->hora_saida . "','". $ponto->id_estagiario->id ."'));";
+        $sql = "INSERT INTO ponto (data_atual, hora_entrada, hora_saida, id_estagiario) 
+        VALUES (" . $ponto->data_atual . ",'" . $ponto->hora_entrada . "','" . $ponto->hora_saida . "'," . $ponto->id_estagiario->id . ");";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
 
-    /*
+    
     public function listar() {
         $sql = "SELECT * FROM ponto ";
         $this->conectar();
@@ -24,36 +24,16 @@ class pontoDAO extends DataBase {
         while ($row = $rs->fetch_assoc()) {
             $ponto = new ponto();
             $ponto->setId($row["id"]);
-            $ponto->setMatricula($row["matricula"]);
-            $ponto->setSenha($row["senha"]);
-            $ponto->setNome($row["nome"]);
-            $ponto->setEndereco($row["endereco"]);
-            $ponto->setTelefone($row["telefone"]);
-            $ponto->setCelular($row["celular"]);
-            $ponto->setEmail($row["email"]);
-            $ponto->setPeriodo($row["periodo"]);
-            $ponto->setTurma($row["turma"]);
-            $ponto->setTurno($row["turno"]);
-            $ponto->setComposicao_carga_horaria($row["composicao_carga_horaria"]);
-            $ponto->setCarga_horaria($row["carga_horaria"]);
-            $ponto->setData_inicio($row["data_inicio"]);
-            $ponto->setData_termino($row["data_termino"]);
-            $ponto->setData_inicio_aditivo($row["data_inicio_aditivo"]);
-            $ponto->setData_termino_aditivo($row["data_termino_aditivo"]);
-            $ponto->setData_recisao($row["data_recisao"]);
-            $ponto->setApolice($row["apolice"]);
-            $ponto->setSeguradora($row["seguradora"]);
-            $pontoDAO = new CursoDAO();
-            $ponto->setId_curso($pontoDAO->carregarPorId($row["id_curso"]));
+            $ponto->setData_atual($row["data_atual"]);
+            $ponto->setHora_entrada($row["hora_entrada"]);
+            $ponto->setHora_saida($row["hora_saida"]);
+            $pontoDAO = new EstagiarioDAO();
+            $ponto->setId_estagiario($pontoDAO->carregarPorId($row["id_estagiario"]));
             $array_ponto[] = $ponto;
         }
         $this->desconectar();
         return $array_ponto;
     }
-    */
-
-
-/*
     
     public function excluir($id) {
         $sql = "DELETE FROM ponto WHERE id=" . $id;
@@ -61,8 +41,6 @@ class pontoDAO extends DataBase {
         $this->conn->query($sql);
         $this->desconectar();
     }
-
-*/
 
 /*
     // bug
@@ -104,7 +82,7 @@ class pontoDAO extends DataBase {
     }
     */
 
-    /*
+
     public function carregarPorId($id) {
         $sql = "SELECT * FROM ponto WHERE id=" . $id;
         $this->conectar();
@@ -112,32 +90,16 @@ class pontoDAO extends DataBase {
         $ponto = new ponto();
         while ($row = $rs->fetch_assoc()) {
             $ponto->setId($row["id"]);
-            $ponto->setMatricula($row["matricula"]);
-            $ponto->setSenha($row["senha"]);
-            $ponto->setNome($row["nome"]);
-            $ponto->setEndereco($row["endereco"]);
-            $ponto->setTelefone($row["telefone"]);
-            $ponto->setCelular($row["celular"]);
-            $ponto->setEmail($row["email"]);
-            $ponto->setPeriodo($row["periodo"]);
-            $ponto->setTurma($row["turma"]);
-            $ponto->setTurno($row["turno"]);
-            $ponto->setComposicao_carga_horaria($row["composicao_carga_horaria"]);
-            $ponto->setCarga_horaria($row["carga_horaria"]);
-            $ponto->setData_inicio($row["data_inicio"]);
-            $ponto->setData_termino($row["data_termino"]);
-            $ponto->setData_inicio_aditivo($row["data_inicio_aditivo"]);
-            $ponto->setData_termino_aditivo($row["data_termino_aditivo"]);
-            $ponto->setData_recisao($row["data_recisao"]);
-            $ponto->setApolice($row["apolice"]);
-            $ponto->setSeguradora($row["seguradora"]);
-            $pontoDAO = new CursoDAO();
-            $ponto->setId_curso($pontoDAO->carregarPorId($row["id_curso"]));
+            $ponto->setData_atual($row["data_atual"]);
+            $ponto->setHora_entrada($row["hora_entrada"]);
+            $ponto->setHora_saida($row["hora_saida"]);
+            $pontoDAO = new EstagiarioDAO();
+            $ponto->setId_estagiario($pontoDAO->carregarPorId($row["id_estagiario"]));
         }
         $this->desconectar();
         return $ponto;
     }
-    */
+
 
     /*
     public function validaLogin($pontopf, $senha) {

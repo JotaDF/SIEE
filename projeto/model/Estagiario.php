@@ -1,5 +1,6 @@
 <?php
 include_once "Curso.php";
+
 class Estagiario 
 {
     var $id;
