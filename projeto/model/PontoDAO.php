@@ -42,35 +42,13 @@ class pontoDAO extends DataBase {
         $this->desconectar();
     }
 
-/*
     // bug
     public function alterar(ponto $ponto) {
-        $sql = "UPDATE ponto SET matricula='" . $ponto->matricula . "', "
-                . " nome='" . $ponto->nome . "', "
-                . " endereco='" . $ponto->endereco . "', "
-                . " telefone='" . $ponto->telefone . "', "
-                . " celular='" . $ponto->celular . "', "
-                . " email='" . $ponto->email . "', "
-                . " periodo='" . $ponto->periodo . "', "
-                . " turma='" . $ponto->turma . "', "
-                . " turno='" . $ponto->turno . "', "
-                . " composicao_carga_horaria='" . $ponto->composicao_carga_horaria . "', "
-                . " carga_horaria='" . $ponto->carga_horaria . "', "
-                . " data_inicio=" . $ponto->data_inicio . ", "
-                . " data_termino=" . $ponto->data_termino . ", "
-                . " data_inicio_aditivo=" . $ponto->data_inicio_aditivo . ", "
-                . " data_termino_aditivo=" . $ponto->data_termino_aditivo . ", "
-                . " data_recisao=" . $ponto->data_recisao . ", "
-                . " apolice='" . $ponto->apolice . "', "
-                . " seguradora='" . $ponto->seguradora . "', "
-                . " id_curso=" . $ponto->id_curso->id . ", "
-                . " senha='" . $ponto->senha . "', "
-                . "WHERE id='". $ponto->id. "";
+        $sql = "UPDATE ponto SET data_atual='" . $ponto->data_atua . "', ". " hora_entrada='" . $ponto->hora_entrada . "', ". " hora_saida ='" . $ponto->hora_saida . "', ". " id_estagiario='" . $ponto->id_estagiario . "', ". "WHERE id='". $ponto->id. "";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
-    */
 
     /*
     public function alterarSituacao($id, $situacao) {

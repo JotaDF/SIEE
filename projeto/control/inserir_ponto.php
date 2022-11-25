@@ -20,4 +20,4 @@ $ponto->setId_estagiario($e);
 $pontoDAO = new PontoDAO();
 $pontoDAO->inserir($ponto);
 
-//header("Location: ../listar_ponto.php");
+header("Location: ../listar_ponto.php");
