@@ -84,7 +84,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ponto` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `data` BIGINT NOT NULL,
+  `data_atual` BIGINT NOT NULL,
   `hora_entrada` TIME NOT NULL,
   `hora_saida` TIME NOT NULL,
   `id_estagiario` INT NOT NULL,
