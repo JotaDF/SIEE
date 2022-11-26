@@ -36,8 +36,7 @@ class CursoDAO extends DataBase{
         $this->desconectar();
     }
     public function alterar(Curso $curso) {
-        $sql = "UPDATE curso SET nome='".$curso->nome."' "
-                . "WHERE id=".$curso->id;
+        $sql = "UPDATE curso SET nome='".$curso->nome."' " . "WHERE id=".$curso->id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

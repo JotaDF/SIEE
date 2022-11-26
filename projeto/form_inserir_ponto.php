@@ -16,7 +16,28 @@
             Data: <input type="date" name="data_atual"  /><br/>
             Hora de Entrada: <input type="time" name="hora_entrada"  /><br/>
             Hora de Saida: <input type="time" name="hora_saida" /><br/>
-            ID do Estágiario: <input type="number" name="id_estagiario"  /><br/>
+            Estagiario:<select size="1" name="id_estagiario" required>
+                <option value="">Selecione...</option>
+                <?php
+                include_once "./model/EstagiarioDAO.php";
+                include_once "./model/Estagiario.php";
+                // put your code here
+                $eDAO = new EstagiarioDAO();
+                $lista = array();
+                $lista = $eDAO->listar();
+                
+                foreach ($lista as $e) {
+                    $selected = "";
+                    if ($e->id === $ponto->id_estagiario->id) {
+                        $selected = "selected";
+                    }
+                    ?>
+                <option value="<?=$e->id ?>" <?=$selected ?>><?=$e->nome ?></option>
+                    <?php
+                }
+                ?>
+            </select>
+            <br/>
             <input type="submit" value="Salvar" />            
         </form>
     </body>

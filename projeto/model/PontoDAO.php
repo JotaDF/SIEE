@@ -44,7 +44,7 @@ class pontoDAO extends DataBase {
 
     // bug
     public function alterar(ponto $ponto) {
-        $sql = "UPDATE ponto SET data_atual='" . $ponto->data_atua . "', ". " hora_entrada='" . $ponto->hora_entrada . "', ". " hora_saida ='" . $ponto->hora_saida . "', ". " id_estagiario='" . $ponto->id_estagiario . "', ". "WHERE id='". $ponto->id. "";
+        $sql = "UPDATE ponto SET data_atual='" . $ponto->data_atual . "', ". " hora_entrada='" . $ponto->hora_entrada . "', ". " hora_saida ='" . $ponto->hora_saida . "', ". " id_estagiario='" . $ponto->id_estagiario->nome. "', ". "WHERE id='". $ponto->id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

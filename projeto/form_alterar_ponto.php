@@ -23,9 +23,9 @@
         <h4>Editar ponto</h4>
         <form method="get" action="control/alterar_ponto.php">
             ID: <?=$ponto->id ?><br/><input type="hidden" value="<?=$ponto->id ?>" name="id" />
-            Data:<input type="text" name="data_atual" value="<?=$ponto->data_atual ?>"  size="20" required /><br/>
-            Hora de Entrada:<input type="text" name="hora_entrada"  value="<?=$ponto->hora_entrada ?>" size="60" required /><br/>
-            Hora de Saída:<input type="text" name="hora_saida" value="<?=$ponto->hora_saida ?>"  size="60" required /><br/>
+            Data:<input type="date" name="data_atual" value="<?=$ponto->data_atual ?>"  size="20" required /><br/>
+            Hora de Entrada:<input type="time" name="hora_entrada"  value="<?=$ponto->hora_entrada ?>" size="60" required /><br/>
+            Hora de Saída:<input type="time" name="hora_saida" value="<?=$ponto->hora_saida ?>"  size="60" required /><br/>
             Estagiario:<select size="1" name="id_estagiario" required>
                 <option value="">Selecione...</option>
                 <?php
