@@ -8,7 +8,7 @@
         <title></title>
     </head>
     <body>
-        <?php
+    <?php
     include_once "./model/EstagiarioDAO.php";
     include_once "./model/Estagiario.php";
     include_once "./model/CursoDAO.php";
@@ -50,7 +50,6 @@
                 $cDAO = new CursoDAO();
                 $lista = array();
                 $lista = $cDAO->listar();
-                
                 foreach ($lista as $c) {
                     $selected = "";
                     if ($c->id === $estagiario->id_curso->id) {

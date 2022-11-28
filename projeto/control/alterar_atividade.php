@@ -14,6 +14,6 @@ $ponto->setId($id_ponto);
 $atividade->setId_ponto($ponto);
 
 $atividadeDAO = new AtividadeDAO();
-$atividadeDAO->listar($atividade);
+$atividadeDAO->alterar($atividade);
 
 header("Location: ../listar_atividade.php");

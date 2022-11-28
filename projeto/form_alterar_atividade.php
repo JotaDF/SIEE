@@ -8,7 +8,7 @@
         <title></title>
     </head>
     <body>
-        <?php
+    <?php
     include_once "./model/AtividadeDAO.php";
     include_once "./model/Atividade.php";
     include_once "./model/PontoDAO.php";
@@ -22,9 +22,9 @@
      ?>
         <h4>Editar Estagiario</h4>
         <form method="get" action="control/alterar_atividade.php">
-            ID: <?=$estagiario->id ?><br/><input type="hidden" name="id" value="<?=$atividade->id ?>" />
-            Atividade Realizada:</br><textarea name="atividade" value="<?=$atividade->matricula ?>" rows="5" cols="33" required ></textarea></br>
-            id_ponto:<select size="1" name="id_ponto" value="<?=$atividade->id_ponto->id ?>" required>
+            ID: <?=$atividade->id ?><br/><input type="hidden" value="<?=$atividade->id ?>" name="id" />
+            Atividade Realizada:</br><textarea value="<?=$atividade->atividade ?>" rows="5" cols="33" name="atividade" required ><?=$atividade->atividade ?></textarea></br>
+            id_ponto:<select size="1" name="id_ponto" required>
                 <option value="">Selecione...</option>
                 <?php
                 include_once "./model/PontoDAO.php";
@@ -35,7 +35,7 @@
                 $lista = $pDAO->listar();
                 foreach ($lista as $p) {
                     $selected = "";
-                    if ($p->id === $ponto->id_ponto->id) {
+                    if ($p->id === $atividade->id_ponto->id) {
                         $selected = "selected";
                     }
                     ?>

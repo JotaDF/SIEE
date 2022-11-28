@@ -40,7 +40,7 @@
                     <td><?= $atividade->atividade ?></td>
                     <td><?= $atividade->id_ponto->data_atual ?></td>
                     <td align="center">
-                        <a href="form_alterar_atividade.php?id=<?= $atvidade->id ?>"><img src="imagens/alterar.svg" width="22" height="22" /></a>
+                        <a href="form_alterar_atividade.php?id=<?= $atividade->id ?>"><img src="imagens/alterar.svg" width="22" height="22" /></a>
                         <a href="#" onclick="excluir(<?= $atividade->id ?>, '<?= $atividade->id_ponto->data_atual ?>')"><img src="imagens/excluir.svg" width="22" height="22" /></a>
                     </td>
                 </tr>
