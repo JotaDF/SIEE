@@ -65,7 +65,7 @@ class pontoDAO extends DataBase {
         $sql = "SELECT * FROM ponto WHERE id=" . $id;
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $ponto = new ponto();
+        $ponto = new Ponto();
         while ($row = $rs->fetch_assoc()) {
             $ponto->setId($row["id"]);
             $ponto->setData_atual($row["data_atual"]);

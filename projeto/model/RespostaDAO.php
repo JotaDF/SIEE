@@ -1,6 +1,4 @@
 <?php
-include_once "RespostaDAO.php";
-include_once "Resposta.php";
 include_once "EstagiarioDAO.php";
 include_once "Estagiario.php";
 include_once "CursoDAO.php";
@@ -10,47 +8,36 @@ include_once "DataBase.php";
 class RespostaDAO extends DataBase {
 
     public function inserir(Resposta $resposta) {
-        $sql = "INSERT INTO resposta (id_curso, questao1, questao2, questao3, questao4, questao5, questao6, id_estagiario) VALUES 
-        (" . $resposta->id_curso->id . ",'" . $resposta->questao1 . "','" . $resposta->questao2 . "','". $resposta->questao3 ."','". $resposta->questao4 ."','". $resposta->questao5 ."','". $resposta->questao6."',". $resposta->id_estagiario->id .");";
+        $sql = "INSERT INTO resposta (id_curso, questao1, questao2, questao3, questao4, questao5, questao6, id_estagiario) VALUES (".$resposta->id_curso->id.",'".$resposta->questao1."','".$resposta->questao2."','".$resposta->questao3."','".$resposta->questao4."','".$resposta->questao5."','".$resposta->questao6."',".$resposta->id_estagiario->id.");";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
+        
     }
 
     
     public function listar() {
-        $sql = "SELECT * FROM estagiario ";
+        $sql = "SELECT * FROM resposta ";
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $array_estagiario = array();
+        $array_resposta = array();
         while ($row = $rs->fetch_assoc()) {
-            $resposta = new Estagiario();
+            $resposta = new Resposta();
             $resposta->setId($row["id"]);
-            $resposta->setMatricula($row["matricula"]);
-            $resposta->setSenha($row["senha"]);
-            $resposta->setNome($row["nome"]);
-            $resposta->setEndereco($row["endereco"]);
-            $resposta->setTelefone($row["telefone"]);
-            $resposta->setCelular($row["celular"]);
-            $resposta->setEmail($row["email"]);
-            $resposta->setPeriodo($row["periodo"]);
-            $resposta->setTurma($row["turma"]);
-            $resposta->setTurno($row["turno"]);
-            $resposta->setComposicao_carga_horaria($row["composicao_carga_horaria"]);
-            $resposta->setCarga_horaria($row["carga_horaria"]);
-            $resposta->setData_inicio($row["data_inicio"]);
-            $resposta->setData_termino($row["data_termino"]);
-            $resposta->setData_inicio_aditivo($row["data_inicio_aditivo"]);
-            $resposta->setData_termino_aditivo($row["data_termino_aditivo"]);
-            $resposta->setData_recisao($row["data_recisao"]);
-            $resposta->setApolice($row["apolice"]);
-            $resposta->setSeguradora($row["seguradora"]);
             $respostaDAO = new CursoDAO();
             $resposta->setId_curso($respostaDAO->carregarPorId($row["id_curso"]));
-            $array_estagiario[] = $resposta;
+            $resposta->setQuestao1($row["questao1"]);
+            $resposta->setQuestao2($row["questao2"]);
+            $resposta->setQuestao3($row["questao3"]);
+            $resposta->setQuestao4($row["questao4"]);
+            $resposta->setQuestao5($row["questao5"]);
+            $resposta->setQuestao6($row["questao6"]);
+            $respostaDAO = new EstagiarioDAO();
+            $resposta->SetId_estagiario($respostaDAO->carregarPorId($row["id_estagiario"]));
+            $array_resposta[] = $resposta;
         }
         $this->desconectar();
-        return $array_estagiario;
+        return $array_resposta;
     }
     
 
@@ -104,33 +91,22 @@ class RespostaDAO extends DataBase {
 
     
     public function carregarPorId($id) {
-        $sql = "SELECT * FROM estagiario WHERE id=" . $id;
+        $sql = "SELECT * FROM resposta WHERE id=" . $id;
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $resposta = new Estagiario();
+        $resposta = new Resposta();
         while ($row = $rs->fetch_assoc()) {
             $resposta->setId($row["id"]);
-            $resposta->setMatricula($row["matricula"]);
-            $resposta->setSenha($row["senha"]);
-            $resposta->setNome($row["nome"]);
-            $resposta->setEndereco($row["endereco"]);
-            $resposta->setTelefone($row["telefone"]);
-            $resposta->setCelular($row["celular"]);
-            $resposta->setEmail($row["email"]);
-            $resposta->setPeriodo($row["periodo"]);
-            $resposta->setTurma($row["turma"]);
-            $resposta->setTurno($row["turno"]);
-            $resposta->setComposicao_carga_horaria($row["composicao_carga_horaria"]);
-            $resposta->setCarga_horaria($row["carga_horaria"]);
-            $resposta->setData_inicio($row["data_inicio"]);
-            $resposta->setData_termino($row["data_termino"]);
-            $resposta->setData_inicio_aditivo($row["data_inicio_aditivo"]);
-            $resposta->setData_termino_aditivo($row["data_termino_aditivo"]);
-            $resposta->setData_recisao($row["data_recisao"]);
-            $resposta->setApolice($row["apolice"]);
-            $resposta->setSeguradora($row["seguradora"]);
             $respostaDAO = new CursoDAO();
             $resposta->setId_curso($respostaDAO->carregarPorId($row["id_curso"]));
+            $resposta->setQuestao1($row["questao1"]);
+            $resposta->setQuestao2($row["questao2"]);
+            $resposta->setQuestao3($row["questao3"]);
+            $resposta->setQuestao4($row["questao4"]);
+            $resposta->setQuestao5($row["questao5"]);
+            $resposta->setQuestao6($row["questao6"]);
+            $respostaDAO = new EstagiarioDAO();
+            $resposta->SetId_estagiario($respostaDAO->carregarPorId($row["id_estagiario"]));
         }
         $this->desconectar();
         return $resposta;

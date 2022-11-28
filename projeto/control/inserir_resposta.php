@@ -2,8 +2,8 @@
 
 include_once "../model/RespostaDAO.php";
 include_once "../model/Resposta.php";
-include_once "../model/Curso.php";
 include_once "../model/Estagiario.php";
+include_once "../model/Curso.php";
 
 $id_curso = $_REQUEST["id_curso"];
 $questao1 = $_REQUEST["questao1"];
@@ -31,4 +31,4 @@ $resposta->setId_estagiario($e);
 $respostaDAO = new RespostaDAO();
 $respostaDAO->inserir($resposta);
 
-//header("Location: ../listar_resposta.php");
+header("Location: ../listar_resposta.php");
