@@ -53,8 +53,6 @@ class EstagiarioDAO extends DataBase {
         return $array_estagiario;
     }
     
-
-    
     public function excluir($id) {
         $sql = "DELETE FROM estagiario WHERE id=" . $id;
         $this->conectar();
@@ -62,30 +60,28 @@ class EstagiarioDAO extends DataBase {
         $this->desconectar();
     }
     
-
     // bug
     public function alterar(Estagiario $estagiario) {
-        $sql = "UPDATE estagiario SET matricula='" . $estagiario->matricula . "', "
-                . " nome='" . $estagiario->nome . "', "
-                . " endereco='" . $estagiario->endereco . "', "
-                . " telefone='" . $estagiario->telefone . "', "
-                . " celular='" . $estagiario->celular . "', "
-                . " email='" . $estagiario->email . "', "
-                . " periodo='" . $estagiario->periodo . "', "
-                . " turma='" . $estagiario->turma . "', "
-                . " turno='" . $estagiario->turno . "', "
-                . " composicao_carga_horaria='" . $estagiario->composicao_carga_horaria . "', "
-                . " carga_horaria='" . $estagiario->carga_horaria . "', "
-                . " data_inicio=" . $estagiario->data_inicio . ", "
-                . " data_termino=" . $estagiario->data_termino . ", "
-                . " data_inicio_aditivo=" . $estagiario->data_inicio_aditivo . ", "
-                . " data_termino_aditivo=" . $estagiario->data_termino_aditivo . ", "
-                . " data_recisao=" . $estagiario->data_recisao . ", "
-                . " apolice='" . $estagiario->apolice . "', "
-                . " seguradora='" . $estagiario->seguradora . "', "
-                . " id_curso=" . $estagiario->id_curso->id . ", "
-                . " senha='" . $estagiario->senha . "', "
-                . "WHERE id='". $estagiario->id. "";
+        $sql = "UPDATE estagiario SET matricula='".$estagiario->matricula."', "
+            . " senha='".$estagiario->senha."', "
+            . " nome='".$estagiario->nome."', "
+            . " endereco='".$estagiario->endereco."', "
+            . " telefone='".$estagiario->telefone."', "
+            . " celular='".$estagiario->celular."', "
+            . " email='".$estagiario->email."', "
+            . " periodo='".$estagiario->periodo."', "
+            . " turma='".$estagiario->turma."', "
+            . " turno='".$estagiario->turno."', "
+            . " composicao_carga_horaria='".$estagiario->composicao_carga_horaria."', "
+            . " carga_horaria='".$estagiario->carga_horaria."', "
+            . " data_inicio='".$estagiario->data_inicio."', "
+            . " data_termino='".$estagiario->data_termino."', "
+            . " data_inicio_aditivo='".$estagiario->data_inicio_aditivo."', "
+            . " data_termino_aditivo='".$estagiario->data_termino_aditivo."', "
+            . " data_recisao='".$estagiario->data_recisao."', "
+            . " apolice='".$estagiario->apolice."', "
+            . " seguradora='".$estagiario->seguradora."', "
+            . " id_curso='".$estagiario->id_curso->id."' " . "WHERE id=".$estagiario->id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

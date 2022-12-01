@@ -42,7 +42,8 @@ class AtividadeDAO extends DataBase {
 
     // bug
     public function alterar(Atividade $atividade) {
-        $sql = " UPDATE atividade SET atividade='" . $atividade->atividade . "', ". " id_ponto=" . $atividade->id_ponto->id . ", ". "WHERE id='". $atividade->id. " ";
+        $sql = "UPDATE atividade SET atividade='".$atividade->atividade."', "
+        . " id_ponto='".$atividade->id_ponto->id."' " . "WHERE id=".$atividade->id;        
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

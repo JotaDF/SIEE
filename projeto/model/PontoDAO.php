@@ -15,7 +15,6 @@ class pontoDAO extends DataBase {
         $this->desconectar();
     }
 
-    
     public function listar() {
         $sql = "SELECT * FROM ponto ";
         $this->conectar();
@@ -43,8 +42,11 @@ class pontoDAO extends DataBase {
     }
 
     // bug
-    public function alterar(ponto $ponto) {
-        $sql = "UPDATE ponto SET data_atual='" . $ponto->data_atual . "', ". " hora_entrada='" . $ponto->hora_entrada . "', ". " hora_saida ='" . $ponto->hora_saida . "', ". " id_estagiario='" . $ponto->id_estagiario->nome. "', ". "WHERE id='". $ponto->id;
+    public function alterar(Ponto $ponto) {
+        $sql = "UPDATE ponto SET data_atual='".$ponto->data_atual."', "
+        . " hora_entrada='".$ponto->hora_entrada."', "
+        . " hora_saida='".$ponto->hora_saida."', "
+        . " id_estagiario='".$ponto->id_estagiario->id."' " . "WHERE id=".$ponto->id;        
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
@@ -59,7 +61,6 @@ class pontoDAO extends DataBase {
         $this->desconectar();
     }
     */
-
 
     public function carregarPorId($id) {
         $sql = "SELECT * FROM ponto WHERE id=" . $id;
@@ -77,7 +78,6 @@ class pontoDAO extends DataBase {
         $this->desconectar();
         return $ponto;
     }
-
 
     /*
     public function validaLogin($pontopf, $senha) {

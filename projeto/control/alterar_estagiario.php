@@ -4,6 +4,7 @@ include_once "../model/EstagiarioDAO.php";
 include_once "../model/Estagiario.php";
 include_once "../model/Curso.php";
 
+$id = $_REQUEST["id"];
 $matricula = $_REQUEST["matricula"];
 $senha = $_REQUEST["senha"];
 $nome = $_REQUEST["nome"];
@@ -26,7 +27,9 @@ $seguradora = $_REQUEST["seguradora"];
 $id_curso = $_REQUEST["id_curso"];
 
 $estagiario = new Estagiario();
+$estagiario->setId($id);
 $estagiario->setMatricula($matricula);
+$estagiario->setSenha($senha);
 $estagiario->setNome($nome);
 $estagiario->setEndereco($endereco);
 $estagiario->setTelefone($telefone);
@@ -47,7 +50,6 @@ $estagiario->setSeguradora($seguradora);
 $curso = new Curso();
 $curso->setId($id_curso);
 $estagiario->setId_curso($curso);
-$estagiario->setSenha($senha);
 
 $estagiarioDAO = new EstagiarioDAO();
 $estagiarioDAO->alterar($estagiario);
