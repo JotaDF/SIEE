@@ -1,9 +1,8 @@
 <?php
-
 include_once "../model/RespostaDAO.php";
 include_once "../model/Resposta.php";
-include_once "../model/Estagiario.php";
 include_once "../model/Curso.php";
+include_once "../model/Estagiario.php";
 
 $id_curso = $_REQUEST["id_curso"];
 $questao1 = $_REQUEST["questao1"];
@@ -25,10 +24,11 @@ $resposta->setQuestao4($questao4);
 $resposta->setQuestao5($questao5);
 $resposta->setQuestao6($questao6);
 $e = new Estagiario();
-$e->setId($id_estagiario);
-$resposta->setId_estagiario($e);
+$e->SetId($id_estagiario);
+$resposta->SetId_estagiario($e);
 
-$respostaDAO = new RespostaDAO();
-$respostaDAO->inserir($resposta);
+var_dump($resposta);
 
-header("Location: ../listar_resposta.php");
+$respostaDao = new RespostaDAO();
+$respostaDao->inserir($resposta);
+

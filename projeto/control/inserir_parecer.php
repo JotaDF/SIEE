@@ -21,4 +21,4 @@ $Parecer->setId_estagiario($e);
 $parecerDAO = new ParecerDAO();
 $parecerDAO->inserir($Parecer);
 
-//header("Location: ../listar_parecer.php");
+header("Location: ../listar_parecer.php");

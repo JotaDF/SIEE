@@ -1,4 +1,5 @@
 <?php
+include_once "Resposta.php";
 include_once "EstagiarioDAO.php";
 include_once "Estagiario.php";
 include_once "CursoDAO.php";
@@ -8,7 +9,8 @@ include_once "DataBase.php";
 class RespostaDAO extends DataBase {
 
     public function inserir(Resposta $resposta) {
-        $sql = "INSERT INTO resposta (id_curso, questao1, questao2, questao3, questao4, questao5, questao6, id_estagiario) VALUES (".$resposta->id_curso->id.",'".$resposta->questao1."','".$resposta->questao2."','".$resposta->questao3."','".$resposta->questao4."','".$resposta->questao5."','".$resposta->questao6."',".$resposta->id_estagiario->id.");";
+        $sql = "INSERT INTO resposta (id_curso, questao1, questao2, questao3, questao4, questao5, questao6, id_estagiario) 
+        VALUES (".$resposta->id_curso->id.",'".$resposta->questao1."','".$resposta->questao2."','".$resposta->questao3."','".$resposta->questao4."','".$resposta->questao5."','".$resposta->questao6."',".$resposta->id_estagiario->id.")";
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

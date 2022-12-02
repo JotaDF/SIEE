@@ -58,7 +58,7 @@ class Resposta{
     }
 
     public function setId_Curso(Curso $id_curso){
-        $this->id = $id_curso;
+        $this->id_curso = $id_curso;
     }
 
     public function setQuestao1($questao1){
@@ -78,11 +78,11 @@ class Resposta{
     }
 
     public function setQuestao5($questao5){
-        $this->$questao5 = $questao5;
+        $this->questao5 = $questao5;
     }
 
     public function setQuestao6($questao6){
-        $this->$questao6 = $questao6;
+        $this->questao6 = $questao6;
     }
 
     public function SetId_estagiario(Estagiario $id_estagiario){
