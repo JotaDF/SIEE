@@ -21,7 +21,7 @@ class pontoDAO extends DataBase {
         $rs = $this->conn->query($sql);
         $array_ponto = array();
         while ($row = $rs->fetch_assoc()) {
-            $ponto = new ponto();
+            $ponto = new Ponto();
             $ponto->setId($row["id"]);
             $ponto->setData_atual($row["data_atual"]);
             $ponto->setHora_entrada($row["hora_entrada"]);

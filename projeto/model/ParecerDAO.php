@@ -1,7 +1,7 @@
 <?php
 
-include_once "Curso.php";
-include_once "CursoDAO.php";
+include_once "Coordenador.php";
+include_once "CoordenadorDAO.php";
 include_once "EstagiarioDAO.php";
 include_once "Estagiario.php";
 include_once "DataBase.php";
@@ -18,34 +18,34 @@ class ParecerDAO extends DataBase {
 
     
     public function listar() {
-        $sql = "SELECT * FROM ponto ";
+        $sql = "SELECT * FROM parecer ";
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $array_ponto = array();
+        $array_parecer = array();
         while ($row = $rs->fetch_assoc()) {
-            $ponto = new ponto();
-            $ponto->setId($row["id"]);
-            $ponto->setData_atual($row["data_atual"]);
-            $ponto->setHora_entrada($row["hora_entrada"]);
-            $ponto->setHora_saida($row["hora_saida"]);
-            $pontoDAO = new EstagiarioDAO();
-            $ponto->setId_estagiario($pontoDAO->carregarPorId($row["id_estagiario"]));
-            $array_ponto[] = $ponto;
+            $parecer = new Parecer();
+            $parecer->setId($row["id"]);
+            $parecer->setParecer($row["parecer"]);
+            $parecerDAO = new EstagiarioDAO();
+            $parecer->setId_estagiario($parecerDAO->carregarPorId($row["id_estagiario"]));
+            $parecerDAO = new CoordenadorDAO();
+            $parecer->setId_coordenador($parecerDAO->carregarPorId($row["id_coordenador"]));
+            $array_parecer[] = $parecer;
         }
         $this->desconectar();
-        return $array_ponto;
+        return $array_parecer;
     }
     
     public function excluir($id) {
-        $sql = "DELETE FROM ponto WHERE id=" . $id;
+        $sql = "DELETE FROM parecer WHERE id=" . $id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
 
     // bug
-    public function alterar(ponto $ponto) {
-        $sql = "UPDATE ponto SET data_atual='" . $ponto->data_atual . "', ". " hora_entrada='" . $ponto->hora_entrada . "', ". " hora_saida ='" . $ponto->hora_saida . "', ". " id_estagiario='" . $ponto->id_estagiario->nome. "', ". "WHERE id='". $ponto->id;
+    public function alterar(Parecer $Parecer) {
+        $sql = "UPDATE parecer SET parecer='" . $Parecer->parecer . "',". " id_estagiario='" . $Parecer->id_estagiario->id. "', ". " id_coordenador ='" . $Parecer->id_coordenador->id . "' ". "WHERE id='". $Parecer->id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
@@ -63,43 +63,43 @@ class ParecerDAO extends DataBase {
 
 
     public function carregarPorId($id) {
-        $sql = "SELECT * FROM ponto WHERE id=" . $id;
+        $sql = "SELECT * FROM parecer WHERE id=" . $id;
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $ponto = new ponto();
+        $parecer = new Parecer();
         while ($row = $rs->fetch_assoc()) {
-            $ponto->setId($row["id"]);
-            $ponto->setData_atual($row["data_atual"]);
-            $ponto->setHora_entrada($row["hora_entrada"]);
-            $ponto->setHora_saida($row["hora_saida"]);
-            $pontoDAO = new EstagiarioDAO();
-            $ponto->setId_estagiario($pontoDAO->carregarPorId($row["id_estagiario"]));
+            $parecer->setId($row["id"]);
+            $parecer->setParecer($row["parecer"]);
+            $parecerDAO = new EstagiarioDAO();
+            $parecer->setId_estagiario($parecerDAO->carregarPorId($row["id_estagiario"]));
+            $parecerDAO = new CoordenadorDAO();
+            $parecer->setId_coordenador($parecerDAO->carregarPorId($row["id_coordenador"]));
         }
         $this->desconectar();
-        return $ponto;
+        return $parecer;
     }
 
 
     /*
-    public function validaLogin($pontopf, $senha) {
-        $sql = "SELECT *, MD5('".$senha."') senhav FROM coordenador WHERE cpf='" . $pontopf . "'";
+    public function validaLogin($parecerpf, $senha) {
+        $sql = "SELECT *, MD5('".$senha."') senhav FROM coordenador WHERE cpf='" . $parecerpf . "'";
         ;
         $this->conectar();
         $rs = $this->conn->query($sql);
-        $ponto = new coordenador();
+        $parecer = new coordenador();
         if ($row = $rs->fetch_assoc()) {
             if ($row["senhav"] === $row["senha"]) {
-                $ponto->setId($row["id"]);
-                $ponto->setNome($row["nome"]);
-                $ponto->setCpf($row["cpf"]);
-                $ponto->setSenha($row["senha"]);
-                $ponto->setEmail($row["email"]);
+                $parecer->setId($row["id"]);
+                $parecer->setNome($row["nome"]);
+                $parecer->setCpf($row["cpf"]);
+                $parecer->setSenha($row["senha"]);
+                $parecer->setEmail($row["email"]);
                 $pDAO = new PerfilDAO();
-               // $ponto->setPerfil($pDAO->carregarPorId($row["id_perfil"]));
+               // $parecer->setPerfil($pDAO->carregarPorId($row["id_perfil"]));
             }
         }
         $this->desconectar();
-        return $ponto;
+        return $parecer;
     }
     */
 

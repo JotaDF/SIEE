@@ -45,7 +45,7 @@ class RespostaDAO extends DataBase {
 
     
     public function excluir($id) {
-        $sql = "DELETE FROM estagiario WHERE id=" . $id;
+        $sql = "DELETE FROM resposta WHERE id=" . $id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
@@ -53,7 +53,7 @@ class RespostaDAO extends DataBase {
     
 
     // bug
-    public function alterar(Estagiario $resposta) {
+    public function alterar(Resposta $resposta) {
         $sql = "UPDATE estagiario SET matricula='" . $resposta->matricula . "', "
                 . " nome='" . $resposta->nome . "', "
                 . " endereco='" . $resposta->endereco . "', "
@@ -113,7 +113,6 @@ class RespostaDAO extends DataBase {
         $this->desconectar();
         return $resposta;
     }
-    
 
     /*
     public function validaLogin($respostapf, $senha) {
