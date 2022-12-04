@@ -45,12 +45,15 @@ class ParecerDAO extends DataBase {
 
     // bug
     public function alterar(Parecer $Parecer) {
-        $sql = "UPDATE parecer SET parecer='" . $Parecer->parecer . "',". " id_estagiario='" . $Parecer->id_estagiario->id. "', ". " id_coordenador ='" . $Parecer->id_coordenador->id . "' ". "WHERE id='". $Parecer->id;
+        $sql = "UPDATE parecer SET parecer='" . $Parecer->parecer . "', "
+        . " id_estagiario=" . $Parecer->id_estagiario->id . ", "
+        . " id_coordenador=" . $Parecer->id_coordenador->id  . " "
+        . "WHERE id=". $Parecer->id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();
     }
-
+    
     /*
     public function alterarSituacao($id, $situacao) {
         $sql = "UPDATE coordenador SET situacao='" . $situacao . "' "

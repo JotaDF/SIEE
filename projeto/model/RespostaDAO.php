@@ -54,27 +54,15 @@ class RespostaDAO extends DataBase {
 
     // bug
     public function alterar(Resposta $resposta) {
-        $sql = "UPDATE estagiario SET matricula='" . $resposta->matricula . "', "
-                . " nome='" . $resposta->nome . "', "
-                . " endereco='" . $resposta->endereco . "', "
-                . " telefone='" . $resposta->telefone . "', "
-                . " celular='" . $resposta->celular . "', "
-                . " email='" . $resposta->email . "', "
-                . " periodo='" . $resposta->periodo . "', "
-                . " turma='" . $resposta->turma . "', "
-                . " turno='" . $resposta->turno . "', "
-                . " composicao_carga_horaria='" . $resposta->composicao_carga_horaria . "', "
-                . " carga_horaria='" . $resposta->carga_horaria . "', "
-                . " data_inicio=" . $resposta->data_inicio . ", "
-                . " data_termino=" . $resposta->data_termino . ", "
-                . " data_inicio_aditivo=" . $resposta->data_inicio_aditivo . ", "
-                . " data_termino_aditivo=" . $resposta->data_termino_aditivo . ", "
-                . " data_recisao=" . $resposta->data_recisao . ", "
-                . " apolice='" . $resposta->apolice . "', "
-                . " seguradora='" . $resposta->seguradora . "', "
-                . " id_curso=" . $resposta->id_curso->id . ", "
-                . " senha='" . $resposta->senha . "', "
-                . "WHERE id='". $resposta->id. "";
+        $sql = "UPDATE resposta SET id_curso=" . $resposta->id_curso->id . ", "
+                . " questao1='" . $resposta->questao1 . "', "
+                . " questao2='" . $resposta->questao2 . "', "
+                . " questao3='" . $resposta->questao3 . "', "
+                . " questao4='" . $resposta->questao4 . "', "
+                . " questao5='" . $resposta->questao5 . "', "
+                . " questao6='" . $resposta->questao6 . "', "
+                . " id_estagiario=" . $resposta->id_estagiario->id . " "
+                . "WHERE id=". $resposta->id;
         $this->conectar();
         $this->conn->query($sql);
         $this->desconectar();

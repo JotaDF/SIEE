@@ -27,8 +27,7 @@ $e = new Estagiario();
 $e->SetId($id_estagiario);
 $resposta->SetId_estagiario($e);
 
-var_dump($resposta);
-
 $respostaDao = new RespostaDAO();
 $respostaDao->inserir($resposta);
 
+header("Location: ../listar_resposta.php");

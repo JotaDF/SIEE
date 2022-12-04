@@ -1,21 +1,36 @@
 <?php
 
-include_once "../model/AtividadeDAO.php";
-include_once "../model/Atividade.php";
-include_once "../model/Ponto.php";
+include_once "../model/RespostaDAO.php";
+include_once "../model/Resposta.php";
+include_once "../model/Curso.php";
+include_once "../model/Estagiario.php";
 
 $id = $_REQUEST["id"];
-$atv = $_REQUEST["atividade"];
-$id_ponto = $_REQUEST["id_ponto"];
+$id_curso = $_REQUEST["id_curso"];
+$questao1 = $_REQUEST["questao1"];
+$questao2 = $_REQUEST["questao2"];
+$questao3 = $_REQUEST["questao3"];
+$questao4 = $_REQUEST["questao4"];
+$questao5 = $_REQUEST["questao5"];
+$questao6 = $_REQUEST["questao6"];
+$id_estagiario = $_REQUEST["id_estagiario"];
 
-$atividade = new Atividade();
-$atividade->setId($id);
-$atividade->setAtividade($atv);
-$ponto= new Ponto();
-$ponto->setId($id_ponto);
-$atividade->setId_ponto($ponto);
+$resposta = new Resposta();
+$resposta->setId($id);
+$c = new Curso();
+$c->setId($id_curso);
+$resposta->setId_Curso($c);
+$resposta->setQuestao1($questao1);
+$resposta->setQuestao2($questao2);
+$resposta->setQuestao3($questao3);
+$resposta->setQuestao4($questao4);
+$resposta->setQuestao5($questao5);
+$resposta->setQuestao6($questao6);
+$e = new Estagiario();
+$e->setId($id_estagiario);
+$resposta->SetId_estagiario($e);
 
-$atividadeDAO = new AtividadeDAO();
-$atividadeDAO->alterar($atividade);
-//var_dump($atividade);
-header("Location: ../listar_atividade.php");
+$respostaDAO = new RespostaDAO();
+$respostaDAO->alterar($resposta);
+//var_dump($resposta);
+header("Location: ../listar_resposta.php");
